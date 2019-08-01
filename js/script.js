@@ -102,13 +102,17 @@ function printQuote () {
   }
 
   htmlString += '</p>';
-  
   document.getElementById("quote-box").innerHTML = htmlString;
-  getRandomColor ()
+  getRandomColor ();
+}
+
+// Function below will clear the timer and reset to start again
+
+var setQuoteInterval = window.setInterval(printQuote, 15000); 
+function clearInterval() {
+  window.clearInterval(setQuoteInterval);
+  setQuoteInterval = window.setInterval(printQuote, 15000);
 }
 
 // When `Show another quote` is pressed it will change the quote
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-// Seting interval for automatic quote generating
-setInterval(printQuote, 15000);
