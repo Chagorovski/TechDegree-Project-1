@@ -76,9 +76,16 @@ function getRandomColor () {
   document.getElementById('loadQuote').style.background = rgbColor;
 }
 
+
+// Function to resset the interval
+resetInterval = () => {
+  clearInterval();
+}
+
 // This function prints the quotes
 
 function printQuote () {
+  resetInterval();
   let callGetRandomQuote = getRandomQuote();
   let htmlString = '';
   let createSpan = document.createElement('span')
@@ -106,13 +113,9 @@ function printQuote () {
   getRandomColor ();
 }
 
-// Function below will clear the timer and reset to start again
-
-var setQuoteInterval = window.setInterval(printQuote, 15000); 
-function clearInterval() {
-  window.clearInterval(setQuoteInterval);
-  setQuoteInterval = window.setInterval(printQuote, 15000);
-}
 
 // When `Show another quote` is pressed it will change the quote
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+// Prints the quote if button is not pressed
+window.setInterval(printQuote, 15000);
