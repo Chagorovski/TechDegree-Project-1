@@ -36,7 +36,11 @@ function printQuote () {
   let htmlString = '';
   let createSpan = document.createElement('span')
   htmlString += '<p class="quote">' + callGetRandomQuote.text + '</p>';
-  htmlString += '<p class="source">' + callGetRandomQuote.author;
+  if (callGetRandomQuote.author) {
+    htmlString += '<p class="source">' + callGetRandomQuote.author;
+  } else {
+    htmlString += '<p class="source">' + "";
+  }
 
 // Statement to check for the citation property before adding it
   if (callGetRandomQuote.citation) {
