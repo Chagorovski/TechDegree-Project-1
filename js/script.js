@@ -1,11 +1,3 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
 // An array with random quotes 
 
 let quotes = [
@@ -56,26 +48,21 @@ let quotes = [
 
 
 // This function generates a random quote
-
 function getRandomQuote () {
   let getRandomNumber = quotes[ Math.floor(Math.random() * quotes.length)];
   return getRandomNumber;
 };
 
 // This function generates random color for the background
-
 function getRandomColor () {
   let a = Math.floor(Math.random() * 193);
   let b = Math.floor(Math.random() * 193);
   let c = Math.floor(Math.random() * 193);
   
   let rgbColor = "rgb(" + a + "," + b + "," + c + ")";
-  // The HTML body is getting random color
   document.body.style.backgroundColor = rgbColor;
-  // The button is getting the same color like the background
   document.getElementById('loadQuote').style.background = rgbColor;
 }
-
 
 // Function to resset the interval
 resetInterval = () => {
@@ -83,7 +70,6 @@ resetInterval = () => {
 }
 
 // This function prints the quotes
-
 function printQuote () {
   resetInterval();
   let callGetRandomQuote = getRandomQuote();
@@ -112,7 +98,6 @@ function printQuote () {
   document.getElementById("quote-box").innerHTML = htmlString;
   getRandomColor ();
 }
-
 
 // When `Show another quote` is pressed it will change the quote
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
